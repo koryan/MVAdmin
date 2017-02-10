@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import {SelectModule} from 'angular2-select';
+import { TreeModule } from 'angular2-tree-component';
 import {
   NgModule,
   ApplicationRef
@@ -10,6 +12,7 @@ import {
   createNewHosts,
   createInputTransfer
 } from '@angularclass/hmr';
+
 import {
   RouterModule,
   PreloadAllModules
@@ -24,13 +27,17 @@ import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
+import { CachingComponent } from './caching';
 import { HomeComponent } from './home';
-import { AboutComponent } from './about';
+import { CatalogComponent } from './catalog';
 import { NoContentComponent } from './no-content';
+ import { AuthComponent } from './auth';
+ import { LogsComponent } from './logs';
+import { UsersComponent } from './users';
 import { XLargeDirective } from './home/x-large';
 
 import '../styles/styles.scss';
-import '../styles/headings.css';
+
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -51,12 +58,19 @@ type StoreType = {
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
-    AboutComponent,
     HomeComponent,
+    CatalogComponent,
+    CachingComponent,
     NoContentComponent,
-    XLargeDirective
+    AuthComponent,
+    UsersComponent,
+    LogsComponent,
+    XLargeDirective,
+   
   ],
   imports: [ // import Angular's modules
+    TreeModule,
+    SelectModule,
     BrowserModule,
     FormsModule,
     HttpModule,

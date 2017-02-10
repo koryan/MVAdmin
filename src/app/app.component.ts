@@ -7,6 +7,7 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import { AppState } from './app.service';
+import { ActivatedRoute } from '@angular/router';
 
 /*
  * App Component
@@ -16,40 +17,52 @@ import { AppState } from './app.service';
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
   styleUrls: [
-    './app.component.css'
+    //'./app.component.css'
   ],
   template: `
-    <nav>
-      <a [routerLink]=" ['./'] " routerLinkActive="active">
-        Index
-      </a>
-      <a [routerLink]=" ['./home'] " routerLinkActive="active">
+
+   <nav>
+      <div class="logo"></div>
+      <div class="right">
+        <span>Hello user!</span>
+        
+        <button class='btn sm reverse'>logout</button>
+        
+      </div>
+     
+      <a [routerLinkActiveOptions]="{exact: true}" [routerLink]=" ['./'] " routerLinkActive="active">
         Home
       </a>
-      <a [routerLink]=" ['./detail'] " routerLinkActive="active">
-        Detail
+      <a [routerLink]=" ['./catalog'] " routerLinkActive="active">
+        Catalog
       </a>
-      <a [routerLink]=" ['./barrel'] " routerLinkActive="active">
-        Barrel
+      <a [routerLink]=" ['./caching'] " routerLinkActive="active">
+        Caching
       </a>
-      <a [routerLink]=" ['./about'] " routerLinkActive="active">
-        About
+      <a [routerLink]=" ['./logs'] " routerLinkActive="active">
+        Logs
       </a>
+      <a [routerLink]=" ['./users'] " routerLinkActive="active">
+        Users
+      </a>
+
+      
     </nav>
 
     <main>
       <router-outlet></router-outlet>
     </main>
 
-    <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
-
+    <!--<pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>-->
+    {{ActivatedRoute}}
     <footer>
-      <span>WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a></span>
+      futa
+      <!--<span>WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a></span>
       <div>
         <a [href]="url">
           <img [src]="angularclassLogo" width="25%">
         </a>
-      </div>
+      </div>-->
     </footer>
   `
 })
@@ -58,12 +71,15 @@ export class AppComponent implements OnInit {
   public name = 'Angular 2 Webpack Starter';
   public url = 'https://twitter.com/AngularClass';
 
+
   constructor(
-    public appState: AppState
+    public appState: AppState,
+    public route: ActivatedRoute
   ) {}
 
   public ngOnInit() {
     console.log('Initial App State', this.appState.state);
+     console.log('ХУУУУУЙ!!!', this.route);
   }
 
 }

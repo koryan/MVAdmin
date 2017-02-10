@@ -1,19 +1,165 @@
-/* this file will be extracted to main dist folder and is imported in index.html */
+   /* this file will be extracted to main dist folder and is imported in index.html */
 /* This file is for setting global styles  */
 @import 'variables';
 
-nav {
-  margin-top: 16px;
+/*reset*/
+
+h1 {
+  color: red;
+  margin:10px 0px;
 }
 
-nav a {
-  background-color: $nav-button-color;
-  color: white;
-  padding: 8px 16px;
-  margin: 8px;
-  vertical-align: middle;
-  line-height: 1.25;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 4px;
+html{padding:0px;margin:0px}
+body{padding:15px;margin:0px}
+
+.right{text-align: right}
+.left{text-align: left}
+
+nav {
+  padding-bottom:10px;margin-bottom:15px;border-bottom:1px solid lightgray;position: relative;
+  div.right{
+    position: absolute;
+    right: 0px;
+    top:5px;
+    
+    *{
+      vertical-align: middle
+    }
+
+    .btn{
+      margin-left:5px
+    }
+  } 
+
+  *{vertical-align:middle}
+
+  div.logo{
+    display:inline-block;
+
+    background-image: url(/assets/img/mvideo-logo.png);
+    background-size: 65px 36px;
+    width: 65px;
+    height: 36px
+  }
+
+  a {
+    color: $nav-item-color;
+    display:inline-block;
+    position: relative;
+    margin: 5px 10px;
+    vertical-align: middle;
+    line-height: 1.25;
+    text-align: center;
+    text-decoration: none;
+    &.active{
+      color:black;
+      font-weight:bold;
+      &:hover{
+        cursor:default
+      }
+    }
+
+    &:hover:not(.active){
+      text-decoration:underline;
+      color: $nav-item-color-hover;
+    }
+
+    &:not(:last-of-type):after{
+      position:absolute;
+      top:-2px;
+      right:-27px;
+      content: '';
+      width: .1rem;
+      height: 1.6rem;
+      margin: 0 .9rem 0 0;
+      background: #dfdfdf;
+    }
+  }
 }
+
+
+
+
+
+
+
+
+
+.btn{  
+  text-align: center;
+  vertical-align: middle;
+  background-color: #ed1c24;
+  background-color: $button-background-color;
+  color: $button-color;
+  border:1px solid $button-background-color;
+  border-radius: 7px;
+  padding:5px 10px;
+  box-shadow: 1px 1px 1px 0px rgba(200,0,0,.5);
+
+  &.big{
+    font-weight: bold;
+    font-size: 120%;
+    padding:5px 15px;
+    border-radius: 9px;
+    border-width:2px
+  }
+
+  &.sm{
+    font-size: 80%;
+    padding:3px 7px;
+    border-radius: 4px;
+  }
+
+  &.xs{
+    font-size: 75%;
+    padding:1px 3px;
+    border-radius: 4px;
+  }
+
+  &.reverse{
+    color: $button-background-color;
+    background-color: $button-color;
+    border-color: $button-background-color;
+  }
+
+  &:hover{
+    cursor: pointer;
+    box-shadow: 1px 1px 1px 0px red;
+  }
+
+  &:active{
+    position: relative;
+    top:1px;
+    left:1px;
+    box-shadow: none;
+  }
+}
+
+
+
+
+
+
+
+table.styled{
+  border:1px solid lightgray;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  &:not(.narrow){width:100%;}
+  &:not(.nopointer) tr{cursor:pointer;}
+  &:not(.nohover) tr:hover{background-color:rgba(0,0,0,.2)}
+  tbody{
+    tr{
+      &:nth-child(odd){
+        background-color:rgba(0,0,0,.1)
+      }
+      td{
+        padding:1px 3px
+      }
+    }
+  }
+  td{border:1px solid lightgray;}
+}
+
+
+footer{margin-top:20px;padding-top:10px;border-top:1px solid lightgray;color:gray}

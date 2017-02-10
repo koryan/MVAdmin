@@ -5,24 +5,11 @@ import {
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'about',
-  styles: [`
-  `],
-  template: `
-    <h1>About</h1>
-    <div>
-      For hot module reloading run
-      <pre>npm run start:hmr</pre>
-    </div>
-    <div>
-      <h3>
-        patrick@AngularClass.com
-      </h3>
-    </div>
-    <pre>this.localState = {{ localState | json }}</pre>
-  `
+  selector: 'caching',
+  styleUrls: ['../../styles/caching.css'],
+ templateUrl: './caching.component.html'
 })
-export class AboutComponent implements OnInit {
+export class CachingComponent implements OnInit {
 
   public localState: any;
   constructor(
@@ -37,7 +24,7 @@ export class AboutComponent implements OnInit {
         this.localState = data.yourData;
       });
 
-    console.log('hello `About` component');
+    console.log('hello `Caching` component');
     // static data that is bundled
     // var mockData = require('assets/mock-data/mock-data.json');
     // console.log('mockData', mockData);

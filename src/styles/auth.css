@@ -1,0 +1,9 @@
+
+div.auth table{margin:0px auto}
+div.auth table input{width:170px;padding:0px 3px}
+div.auth table thead td{text-align: center;padding-bottom:5px}
+div.auth table tfoot td{text-align: center;padding-top:10px}
+div.auth table tfoot td .btn{padding-left:20px;padding-right:20px}
+div.auth table thead{font-weight: bold;font-size: 120%}
+div.auth table tbody>tr>td:nth-child(1){text-align: left;padding-right:10px}
+div.auth table tbody>tr>td:nth-child(2){text-align: right}
